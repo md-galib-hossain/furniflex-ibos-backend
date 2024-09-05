@@ -1,4 +1,4 @@
-import { FilterQuery, Query } from 'mongoose';
+import mongoose, { FilterQuery, Query } from 'mongoose';
 
 class QueryBuilder<T> {
   public modelQuery: Query<T[], T>;
@@ -28,13 +28,13 @@ class QueryBuilder<T> {
   filter() {
     const queryObj = { ...this.query }; // copy
 
+    
     // Filtering
     const excludeFields = ['searchTerm', 'sort', 'limit', 'page', 'fields'];
-
     excludeFields.forEach((el) => delete queryObj[el]);
+    console.log(queryObj)
 
     this.modelQuery = this.modelQuery.find(queryObj as FilterQuery<T>);
-
     return this;
   }
 

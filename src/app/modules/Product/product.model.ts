@@ -1,4 +1,5 @@
 import { model, Schema } from "mongoose";
+import { IProduct } from "./product.interface";
 
 const productSchema = new Schema<IProduct> (
   {
@@ -28,12 +29,25 @@ const productSchema = new Schema<IProduct> (
       type: Number,
       required: true,
     },
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: "Category",
+        required: true, // Each product must have a category
+      },
+      subCategory: {
+        type: Schema.Types.ObjectId,
+        ref: "Category",
+        default: null, // Subcategory is optional, as not all products will have subcategories
+      },
     createdAt: {
       type: Date,
       default: Date.now,
     },
   },
-  { timestamps: true }
+  { timestamps: true,
+    toJSON: { virtuals: true }, 
+  
+   }
 );
 productSchema.virtual("finalPrice").get(function () {
   if (this.discountPercentage && this.discountPercentage > 0) {
@@ -43,3 +57,8 @@ productSchema.virtual("finalPrice").get(function () {
 });
 
 export const Product = model<IProduct>('Product',productSchema)
+
+
+
+
+  

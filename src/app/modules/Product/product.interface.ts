@@ -1,4 +1,6 @@
- interface IProduct {
+import { Types } from "mongoose";
+
+export interface IProduct {
     _id?: string;
     name: string;
     description: string;
@@ -9,4 +11,6 @@
     createdAt: Date;
     updatedAt?: Date; 
     finalPrice?: number; 
+    category : Types.ObjectId;
+    subCategory? : Types.ObjectId
  }
