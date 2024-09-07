@@ -8,5 +8,5 @@ export default {
   port: process.env.PORT,
   bcrypt_salt_rounds: process.env.bcrypt_salt_rounds,
   database_url: process.env.DATABASE_URL,
-  
+  FRONTEND_LINK:process.env.FRONTEND_LINK
 };
