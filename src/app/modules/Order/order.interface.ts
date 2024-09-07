@@ -7,8 +7,8 @@ export interface IOrderProduct {
   price: number;
 }
 
-export type TOrderStatus = 'Pending' | 'Shipped' | 'Delivered' | 'Cancelled'
-export type TPaymentMethod = 'Credit Card' | 'PayPal' | 'Bank Transfer'| 'Cash On Delivery';
+export type TOrderStatus = 'pending' | 'shipped' | 'delivered' | 'cancelled'
+export type TPaymentMethod = 'Card' | 'PayPal' | 'Bank Transfer'| 'Cash On Delivery';
 export interface IOrder {
   customer: Types.ObjectId ;
   email: string;

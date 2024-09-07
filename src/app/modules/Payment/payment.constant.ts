@@ -1,7 +1,7 @@
-export const PaymentStatusArr = ['Pending', 'Completed', 'Failed']
+export const PaymentStatusArr = ['pending', 'completed', 'failed']
 
 export const PaymentStatus = {
-    Pending: 'Pending',
-    Completed: 'Completed',
-    Failed: 'Failed',
+    Pending: 'pending',
+    Completed: 'completed',
+    Failed: 'failed',
   } as const;

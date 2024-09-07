@@ -46,7 +46,7 @@ const orderSchema = new Schema<IOrder>(
     paymentMethod: {
       type: String,
       enum: PaymentMethodArr,
-      default: PaymentMethod.CashOnDelivery,
+      default: PaymentMethod.CreditCard,
     },
     createdAt: {
       type: Date,

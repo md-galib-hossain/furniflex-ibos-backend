@@ -34,7 +34,6 @@ const createProduct = catchAsync(async (req, res) => {
     });
   });
 
-  // update a product
 const updateProductById = catchAsync(async (req, res) => {
   const {id} = req.params
 const result = await ProductServices.updateProductById(id,req.body);

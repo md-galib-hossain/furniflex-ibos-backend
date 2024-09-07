@@ -5,24 +5,35 @@ import { PaymentStatus, PaymentStatusArr } from './payment.constant';
 
 const paymentSchema = new Schema<IPayment>(
   {
-    order: {
-      type: Schema.Types.ObjectId,
-      ref: 'Order',
+    email: {
+      type: String,
       required: true,
     },
-    amount: {
+    price: {
       type: Number,
       required: true,
     },
-    paymentMethod: {
+    transactionId: {
       type: String,
-      enum: PaymentMethodArr,
-      default: PaymentMethod.CashOnDelivery,
+      required: true,
+    },
+    cartIds: {
+      type: [Schema.Types.ObjectId], 
+      required: true,
+    },
+    itemIds: {
+      type: [Schema.Types.ObjectId], 
+      required: true,
     },
     status: {
       type: String,
       enum: PaymentStatusArr,
       default: PaymentStatus.Pending,
+    },
+    paymentMethod: {
+      type: String,
+      enum: PaymentMethodArr,
+      default: PaymentMethod.CashOnDelivery,
     },
     createdAt: {
       type: Date,
