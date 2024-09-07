@@ -9,6 +9,10 @@ const orderSchema = new Schema<IOrder>(
       ref: 'User',
       required: true,
     },
+    email: {
+      type: String,
+      required: true, 
+    },
     products: [
       {
         product: {
@@ -42,7 +46,7 @@ const orderSchema = new Schema<IOrder>(
     paymentMethod: {
       type: String,
       enum: PaymentMethodArr,
-      required: true,
+      default: PaymentMethod.CashOnDelivery,
     },
     createdAt: {
       type: Date,

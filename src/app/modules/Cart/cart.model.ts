@@ -6,21 +6,34 @@ const cartSchema = new Schema<ICart>(
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User',
+      default: null, // Nullable user field
+    },
+    email: {
+      type: String,
       required: true,
     },
-    items: [
-      {
-        product: {
-          type: Schema.Types.ObjectId,
-          ref: 'Product',
-          required: true,
-        },
-        quantity: {
-          type: Number,
-          required: true,
-        },
-      },
-    ],
+    itemId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Product',
+      required: true,
+    },
+    itemName: {
+      type: String,
+      required: true, 
+    },
+    itemPrice: {
+      type: Number,
+      required: true,
+    },
+    quantity: {
+      type: Number,
+      required: true,
+      min: 1,
+    },
+    itemImage: {
+      type: String,
+      required: true,
+    },
     createdAt: {
       type: Date,
       default: Date.now,

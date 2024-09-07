@@ -17,7 +17,7 @@ const paymentSchema = new Schema<IPayment>(
     paymentMethod: {
       type: String,
       enum: PaymentMethodArr,
-      required: true,
+      default: PaymentMethod.CashOnDelivery,
     },
     status: {
       type: String,

@@ -1,12 +1,13 @@
 import { Types } from 'mongoose';
 
-export interface ICartItem {
-  product: Types.ObjectId;
-  quantity: number;
-}
 
 export interface ICart  {
-  user: Types.ObjectId ;
-  items: ICartItem[];
+  user?: Types.ObjectId ;
+  email: string; 
+  itemId: Types.ObjectId;
+  itemPrice: number;
+  itemName: string;
+  quantity: number;
+  itemImage: string;
   createdAt: Date;
 }

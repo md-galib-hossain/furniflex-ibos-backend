@@ -10,7 +10,7 @@ import { CategorySearchableFields } from "./category.constant";
 const getAllCategories = async (
   query: Record<string, unknown>
 ): Promise<{ meta: TMeta; result: ICategory[] }> => {
-  const categoryQuery = new QueryBuilder(Category.find(), query)
+  const categoryQuery = new QueryBuilder(Category.find().populate('parentCategory'), query)
     .search(CategorySearchableFields)
     .filter()
     .sort()
