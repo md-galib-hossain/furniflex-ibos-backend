@@ -3,7 +3,7 @@ import { OrderStatusArr, PaymentMethodArr } from "./order.constant";
 
 const createOrderValidation = z.object({
   body: z.object({
-    customer: z.string().min(1, "Customer ID is required"),
+    email: z.string().email("Invalid email address"), 
     products: z
       .array(
         z.object({

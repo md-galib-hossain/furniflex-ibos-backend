@@ -4,11 +4,7 @@ import { OrderStatus, OrderStatusArr, PaymentMethod, PaymentMethodArr } from './
 
 const orderSchema = new Schema<IOrder>(
   {
-    customer: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
+    
     email: {
       type: String,
       required: true, 

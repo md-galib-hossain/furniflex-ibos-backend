@@ -10,7 +10,6 @@ export interface IOrderProduct {
 export type TOrderStatus = 'pending' | 'shipped' | 'delivered' | 'cancelled'
 export type TPaymentMethod = 'Card' | 'PayPal' | 'Bank Transfer'| 'Cash On Delivery';
 export interface IOrder {
-  customer: Types.ObjectId ;
   email: string;
   products: IOrderProduct[];
   totalPrice: number;
